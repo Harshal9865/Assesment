@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Scale the whole card on shorter screens so everything fits without scroll */
+.quiz-root {
+  transition: transform 0.3s ease-out;
+}
+
+/* Slight shrink on medium-height screens */
+@media (max-height: 900px) {
+  .quiz-root {
+    transform: scale(0.9);
+  }
+}
+
+/* More shrink on typical 1366x768 laptop screens */
+@media (max-height: 800px) {
+  .quiz-root {
+    transform: scale(0.8);
+  }
+}
+
+/* Extra safety for very short windows */
+@media (max-height: 700px) {
+  .quiz-root {
+    transform: scale(0.7);
+  }
+}
