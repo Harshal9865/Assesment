@@ -1,0 +1,45 @@
+-> What Was Used to Build This : 
+
+React (with Vite + TypeScript) — fast and modern
+Tailwind CSS — flexible styling system
+Framer Motion — smooth animations
+Google Fonts — DM Serif Display + Inter to match design exactly
+Optimized for desktop layout, because the given Figma design was desktop-only.
+
+
+Q. Features
+Very close visual match to the Figma reference
+Gradient borders, shadows, and precise typography
+No page scrolling — quiz always fits inside the frame
+Animated question transitions (slide + fade)
+Hover + selected styling on answers
+Dynamic progress bar that increases only once a question is answered
+Animated final score
+Cute paw badge saying “Best of Luck!”
+
+
+Q.  Setup & Instructions
+Follow these steps to run the project locally:
+->Clone or Download the Project
+->git clone <YOUR_REPO_LINK>
+->cd quiz-assignment
+️ 
+
+Q . Install Dependencies
+npm install
+Run the App in Development Mode
+npm run dev
+
+️Q.  Open in Browser
+http://localhost:5173
+
+
+Q.  Assumptions Made
+All questions are locally stored — no backend or API
+Desktop-focused design (no mobile responsiveness required)
+Linear quiz flow with Next / Previous buttons
+Score calculation: (correct answers ÷ total questions) × 100
+
+Q. Time Spent
+Task	Time
+Time spent : 2hrs due to exams.
