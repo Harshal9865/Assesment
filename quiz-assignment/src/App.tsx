@@ -70,10 +70,6 @@ export default function App() {
     return Math.round((correct / questions.length) * 100);
   }, [answers]);
 
-  const answeredCount = useMemo(
-    () => Object.values(answers).filter((value) => value != null).length,
-    [answers],
-  );
 
   function handleSelectOption(optionId: number) {
     setAnswers((prev) => ({
