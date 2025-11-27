@@ -70,6 +70,11 @@ export default function App() {
     return Math.round((correct / questions.length) * 100);
   }, [answers]);
 
+  const answeredCount = useMemo(
+    () => Object.values(answers).filter((value) => value != null).length,
+    [answers],
+  );
+
   function handleSelectOption(optionId: number) {
     setAnswers((prev) => ({
       ...prev,
@@ -105,16 +110,25 @@ export default function App() {
 
   return (
     <QuizLayout>
-      <header className="flex flex-col items-center gap-4">
-        <h1 className="font-display italic text-[64px] text-quizPrimary tracking-[-0.04em]">
-          Test Your Knowledge
-        </h1>
-        <div className="px-6 py-2 rounded-full bg-white text-[13px] text-[#7A8B9B]">
+      <header className="flex flex-col items-center gap-3">
+        <div className="w-[919px] h-[102px] flex items-center justify-center">
+          <h1
+  className="font-display  font-serif font-itali text-[70px] leading-[24px] tracking-[-4px] text-center bg-clip-text "
+  style={{
+    color: "#3CABDA",
+  }}
+>
+  Test Your Knowledge
+</h1>
+
+
+        </div>
+        <div className="w-[422px] h-[45px] flex items-center justify-center rounded-[8px] bg-white text-[13px] text-[#000000] shadow-sm">
           Answer all questions to see your results
         </div>
       </header>
 
-      <div className="mt-10">
+      <div className="mt-6">
         <ProgressBar total={questions.length} currentIndex={currentIndex} />
       </div>
 

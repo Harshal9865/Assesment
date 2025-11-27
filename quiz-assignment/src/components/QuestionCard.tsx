@@ -27,22 +27,23 @@ export default function QuestionCard({
   return (
     <motion.section
       key={question.id}
-      className="mt-12 flex flex-col gap-5"
-      initial={{ opacity: 0, y: 24 }}
+      className="mt-6 flex flex-col gap-2"
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -24 }}
-      transition={{ duration: 0.35, ease: 'easeOut' }}
-      aria-label={`Question ${index + 1} of ${total}`}
+      exit={{ opacity: 0, y: -16 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
     >
+      {/* Question bar */}
       <div className="w-full flex justify-center">
-        <div className="w-[896px] h-[78px] rounded-[10px] bg-gradient-to-r from-quizOption to-quizOptionLight border border-[#96E5FF] flex items-center justify-center text-[15px] font-medium text-quizPrimary">
+        <div className="w-[720px] h-[48px] rounded-[10px] bg-gradient-to-r from-quizOption to-quizOptionLight border border-[#96E5FF] flex items-center justify-center text-[14px] font-medium text-quizPrimary">
           <span className="mr-1">{index + 1}.</span>
           <span>{question.text}</span>
         </div>
       </div>
 
+      {/* Options */}
       <div className="w-full flex justify-center">
-        <div className="w-[897px] flex flex-col gap-4">
+        <div className="w-[720px] flex flex-col gap-2">
           {question.options.map((option) => (
             <OptionButton
               key={option.id}
@@ -54,41 +55,41 @@ export default function QuestionCard({
         </div>
       </div>
 
-      <div className="w-full flex justify-center mt-6">
-        <div className="w-[897px] flex justify-end items-center gap-3">
-          <button
-            type="button"
-            onClick={onPrevious}
-            disabled={isFirst}
-            aria-label="Previous question"
-            className={`w-[40px] h-[40px] rounded-[8px] border border-[#E2EDF6] flex items-center justify-center text-base transition-all duration-200 ${
-              isFirst
-                ? 'bg-[#F4F7FB] text-gray-400 cursor-default'
-                : 'bg-[#F4F7FB] hover:bg-white hover:shadow-sm text-[#5B6A79]'
-            }`}
-          >
-            ←
-          </button>
-          {isLast ? (
-            <button
-              type="button"
-              onClick={onNext}
-              className="px-7 h-[40px] rounded-[8px] border border-[#96E5FF] bg-gradient-to-r from-quizOption to-quizOptionLight text-[14px] text-quizPrimary font-medium shadow-sm hover:brightness-105 transition-all duration-200"
-            >
-              Submit
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={onNext}
-              aria-label="Next question"
-              className="w-[40px] h-[40px] rounded-[8px] border border-[#E2EDF6] bg-[#F4F7FB] flex items-center justify-center text-base text-[#5B6A79] hover:bg-white hover:shadow-sm transition-all duration-200"
-            >
-              →
-            </button>
-          )}
-        </div>
-      </div>
+      {/* Arrows / Submit */}
+<div className="w-full flex justify-center mt-2 pb-2">
+  <div className="w-[900px] flex justify-end gap-3">
+    {!isFirst && (
+      <button
+        type="button"
+        onClick={onPrevious}
+        aria-label="Previous question"
+        className="w-[32px] h-[32px] rounded-[8px] border border-[#96E5FF] bg-[#E6F7FF] flex items-center justify-center text-[16px] text-[#15313D] hover:bg-[#96E5FF] hover:text-white transition-all duration-200"
+      >
+        ←
+      </button>
+    )}
+
+    {isLast ? (
+      <button
+        type="button"
+        onClick={onNext}
+        className="px-6 h-[36px] rounded-[8px] border border-[#96E5FF] bg-gradient-to-r from-quizOption to-quizOptionLight text-[14px] text-quizPrimary font-medium shadow-sm hover:brightness-105 transition-all duration-200"
+      >
+        Submit
+      </button>
+    ) : (
+      <button
+        type="button"
+        onClick={onNext}
+        aria-label="Next question"
+        className="w-[32px] h-[32px] rounded-[8px] border border-[#96E5FF] bg-[#E6F7FF] flex items-center justify-center text-[16px] text-[#15313D] hover:bg-[#96E5FF] hover:text-white transition-all duration-200"
+      >
+        →
+      </button>
+    )}
+  </div>
+</div>
+
     </motion.section>
   );
 }

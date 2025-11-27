@@ -4,33 +4,36 @@
   color-scheme: light;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
   min-height: 100vh;
 }
 
-/* Scale the whole card on shorter screens so everything fits without scroll */
-.quiz-root {
-  transition: transform 0.3s ease-out;
+/* Outer white rounded quiz card */
+.quiz-shell {
+  max-width: 1300px;
+  max-height: 720px;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
 }
 
-/* Slight shrink on medium-height screens */
-@media (max-height: 900px) {
-  .quiz-root {
+/* Light scaling on typical laptop heights so everything fits nicely */
+@media (min-width: 1200px) and (max-height: 900px) { 
+
+  .quiz-shell {
     transform: scale(0.9);
   }
 }
 
-/* More shrink on typical 1366x768 laptop screens */
 @media (max-height: 800px) {
-  .quiz-root {
-    transform: scale(0.8);
-  }
-}
-
-/* Extra safety for very short windows */
-@media (max-height: 700px) {
-  .quiz-root {
-    transform: scale(0.7);
+  .quiz-shell {
+    transform: scale(0.85);
   }
 }
